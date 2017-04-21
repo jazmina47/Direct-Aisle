@@ -14,8 +14,11 @@ class CreateListsTable extends Migration
     public function up()
     {
         Schema::create('lists', function (Blueprint $table) {
-            $table->increments('id');    
-            $table->timestamps();
+            $table->increments('list_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users'); /* fk: user_id */
+            $table->timestamp('added_on'); /* created_on */
+            $table->string('state'); /* state */
         });
     }
 

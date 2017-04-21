@@ -17,4 +17,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Redirects user to the after log in page...
 Route::get('/home', 'HomeController@index');
+
+
+
+
+
+
+// Checks if I'm connected into the direct aisle db.
+// DB::Connection
+Route::get('/testDB', function(){
+
+	$name = DB::Connection()->getDatabaseName();
+
+	return $name;
+
+});

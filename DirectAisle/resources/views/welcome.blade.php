@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>DirectAisle</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -69,17 +69,18 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Home</a><!--When logged in-->
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
                     @endif
                 </div>
             @endif
-
+            <!--This is the welcome page, user has not register or has not signed in!-->
             <div class="content">
                 <div class="title m-b-md">
-                    CODELaravel
+                   <h3> Direct Aisle </h3>
+                    <p>Where finding a product is made easy!</p>
                 </div>
 
                 <div class="links">

@@ -17,7 +17,7 @@ class CreateListItemTable extends Migration
             {
                     $table->increments('id');
                     $table->foreign('list_id')->references('id')->on('lists');
-                    $table->foreign('product_id')->references('id')->on('productlocations');
+                    $table->foreign('product_id')->references('id')->on('product_locations');
                     $table->timestamps();
 
             });

@@ -27,22 +27,12 @@ Route::post('/home', 'HomeController@shopping_list');//
 
 //session varable of store to redirect 
 
-
-
-
-
-
 //when path has list go to lisController
 //routes all requests to views
 //Route::resource('list', 'listController');
 
 // First: route second: controller
 Route::resource('manageLists', 'manageListsController');
-
-
-
-
-
 
 
 Route::post ('api/product_locations', 'ProductLocationController@store');

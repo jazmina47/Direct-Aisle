@@ -27,7 +27,9 @@ class manageListsController extends Controller
     public function create()
     {
         //
-        print "inside create"; exit;
+        //print "inside create"; exit;
+        return view('create_list');
+
     }
 
     /**

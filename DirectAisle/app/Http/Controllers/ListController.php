@@ -13,7 +13,12 @@ class ListController extends Controller
      */
     public function index()
     {
-        //
+        //get user id thats authenticated 
+
+        //query select all from lists where user id is user_id
+        //give all lists
+
+        //pass results of the lists to view 
     }
 
     /**
@@ -23,7 +28,7 @@ class ListController extends Controller
      */
     public function create()
     {
-        //
+        //create calls create a new list
     }
 
     /**

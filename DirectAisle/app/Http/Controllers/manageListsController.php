@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ListController extends Controller
+class manageListsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +13,10 @@ class ListController extends Controller
      */
     public function index()
     {
-        //get user id thats authenticated 
-
-        //query select all from lists where user id is user_id
-        //give all lists
-
-        //pass results of the lists to view 
+        //
+       // print "made it to index";
+        return view('shopping_lists');
+        //return view('home');
     }
 
     /**
@@ -28,7 +26,8 @@ class ListController extends Controller
      */
     public function create()
     {
-        //create calls create a new list
+        //
+        print "inside create"; exit;
     }
 
     /**
@@ -40,6 +39,7 @@ class ListController extends Controller
     public function store(Request $request)
     {
         //
+        print "inside store"; exit;
     }
 
     /**
@@ -51,6 +51,7 @@ class ListController extends Controller
     public function show($id)
     {
         //
+        print "inside show"; exit;
     }
 
     /**
@@ -62,6 +63,7 @@ class ListController extends Controller
     public function edit($id)
     {
         //
+        print "inside edit"; exit;
     }
 
     /**
@@ -74,6 +76,7 @@ class ListController extends Controller
     public function update(Request $request, $id)
     {
         //
+        print "inside update"; exit;
     }
 
     /**
@@ -85,5 +88,7 @@ class ListController extends Controller
     public function destroy($id)
     {
         //
+        print "inside delete"; exit;
+
     }
 }

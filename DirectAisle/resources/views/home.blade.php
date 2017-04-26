@@ -11,7 +11,7 @@
                     <p>Please choose a location.</p>
 
 
-                    <form action={{url('home')}} method="post" class="form-horizontal">
+                    <form action={{url('manageLists')}} method="get" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="dropdown"><!-- Start of drop down -->
                                 <select class="storeLocation" id="store" name="store">

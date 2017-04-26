@@ -34,11 +34,6 @@ class HomeController extends Controller
 
         return view('home');
     }
-    //index2
-    public function shopping_list()
-    {
-        
-        return view('shopping_lists');
-    }
-
+    
 }
+?>

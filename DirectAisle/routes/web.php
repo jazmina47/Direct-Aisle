@@ -23,6 +23,11 @@ Auth::routes();
 // Redirects user to the after log in page...
 Route::get('/home', 'HomeController@index');
 
+Route::post ('api/product_locations', 'ProductLocationController@store');
+Route::get ('api/product_locations/{pid?}', 'ProductLocationController@index');
+Route::post( 'api/product_locations/{pid}', 'ProductLocationController@update');
+Route::delete( 'api/product_locations/{pid}', 'ProductLocationController@destroy');
+
 
 
 

@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+// Jacob's admin route
 Route::get('/admin', function() {
   return view('admin');
 });
@@ -22,8 +23,7 @@ Auth::routes();
 
 // Redirects user to the after log in page...
 Route::get('/home', 'HomeController@index');
-
-
+Route::post('/home', 'HomeController@shopping_list');//
 
 
 

@@ -1,6 +1,6 @@
-<!--@extends('layouts.app')
+@extends('layouts.app')
 
-@section('content')-->
+@section('content')
 <hr>
 <div class="container">
     <div class="row">
@@ -26,4 +26,4 @@
 
 <!-- Start of new  -->
 <hr>
-<!--@endsection-->
+@endsection

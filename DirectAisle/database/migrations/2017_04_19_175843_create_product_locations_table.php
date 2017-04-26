@@ -17,8 +17,8 @@ class CreateProductLocationsTable extends Migration
             $table->increments('item_id');
             $table->integer('aisle_num');
             $table->integer('section_num');
-            $table->enum('which_end', ['front', 'back']);
-            $table->enum('which_side', ['left', 'right']);
+            $table->enum('which_end', ['Front', 'Back']);
+            $table->enum('which_side', ['Left', 'Right']);
             $table->string('category');
             $table->string('description');
             $table->timestamps();

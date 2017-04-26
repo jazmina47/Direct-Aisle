@@ -17,6 +17,7 @@ class CreateListsTable extends Migration
             $table->increments('list_id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users'); /* fk: user_id */
+            $table->string('list_name');
             $table->timestamps();
 
           $table->enum('state', ['open', 'closed']);

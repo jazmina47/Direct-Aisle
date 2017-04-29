@@ -109,6 +109,7 @@ class manageListsController extends Controller
     public function update(Request $request, $id)
     {
         //
+       // print "inside update"; exit;
 
         return view('add_items');
 

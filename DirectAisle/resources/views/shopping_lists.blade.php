@@ -1,3 +1,21 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @jacobtarter
+ Sign out
+ Unwatch 2
+  Star 0
+ Fork 0 kflores88/Direct-Aisle
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
+Tree: 8d77d1269e Find file Copy pathDirect-Aisle/DirectAisle/resources/views/shopping_lists.blade.php
+8d77d12  7 minutes ago
+@jacobtarter jacobtarter delete working
+2 contributors @kflores88 @jacobtarter
+RawBlameHistory
+64 lines (56 sloc)  2.54 KB
 @extends('layouts.app')
 
 @section('content')
@@ -28,35 +46,19 @@
                                <form action="manageLists/{{$value->list_id}}" method="post" >
                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+                                <input type="hidden" name="_method" value="delete">
 
                                     <!--Delete/Destroy button-->
                                     <div align="left">
                                         <input type="submit" class="btn btn-danger" value="delete" class="fa fa-plus">
                                     </div>
-                                </form>
-                                </td>
-
-                                <!--Add edit button-->
-                                <td><!--Add for each btn-->
-                                <form action="manageLists/{{$value->list_id}}/edit" method="get" >
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="hidden" name="_method" value="edit">
-
-                                    <!--Edit button-->
-                                    <div align="left">
-                                        <input type="submit" class="btn btn-info" value="edit" class="fa fa-plus">
-                                    </div>
                                 </td>
                                 </tr>
-<<<<<<< HEAD
                                 </form>
-=======
-                                </form>
->>>>>>> master
                     @endforeach
 
                     </tbody>
-                    <!--Button that redirects to creating a form for adding a shopping list-->
+                    <!--  -->
                     </table>
 
                     <form action="manageLists/create" method="get">

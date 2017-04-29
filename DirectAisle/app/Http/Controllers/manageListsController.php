@@ -16,9 +16,9 @@ class manageListsController extends Controller
      */
     public function index()
     {
-      echo"index";
+      //echo"index";
         $id = Auth::id();
-        echo $id;
+        //echo $id;
         //variable name that store lists and model List *test
        // $lists = ShoppingList::all();
         $lists = ShoppingList::where('user_id', $id)->get();
@@ -56,12 +56,12 @@ class manageListsController extends Controller
      */
     public function store(Request $request)
     {
-      echo "create list2";
+      //echo "create list2";
         //
-        print "inside store";
+      //  print "inside store";
         $list = new ShoppingList;
 
-        print_r($_REQUEST);
+      //  print_r($_REQUEST);
         //print_r($request);
         $list->list_name = $request->list_name;
         $id=Auth::id();
@@ -136,7 +136,7 @@ class manageListsController extends Controller
 
         // return to this same shopping_list view
         //return view('shopping_lists')->with('lists', $lists);
-return redirect('manageLists');
+        return redirect('manageLists');
 
 
     }

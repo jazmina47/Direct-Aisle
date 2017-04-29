@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ShoppingList;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class manageListsController extends Controller
 {
@@ -15,6 +16,7 @@ class manageListsController extends Controller
      */
     public function index()
     {
+      echo"index";
         $id = Auth::id();
         echo $id;
         //variable name that store lists and model List *test
@@ -125,13 +127,16 @@ class manageListsController extends Controller
         $list->delete();
 
         //
-        \Session::flash('message', 'successfully deleted list!');
-        return \Redirect::to('shopping_lists');
+        //\Session::flash('message', 'successfully deleted list!');
+        //$id=Auth::id();
+        //$lists = ShoppingList::where('user_id', $id)->get();
+        //echo $request->list_name;
+
+
 
         // return to this same shopping_list view
-        //return view('shopping_lists');
-
-
+        //return view('shopping_lists')->with('lists', $lists);
+return redirect('manageLists');
 
 
     }

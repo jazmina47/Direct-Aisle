@@ -5,13 +5,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">       
+            <div class="panel panel-default">
                 <div class="panel-heading"><center><h3>Manage Shopping List</h3></center></div><!-- Star of panel-heading -->
                 <div align="center" class="panel-body"><!-- Star of panel-body-->
                     <!--Add table -->
                     <table class="table table-striped task-table">
                     <thead>
-                        <th>ID</th> 
+                        <th>ID</th>
                         <th>NAME</th>
                         <th>DATE</th>
                     </thead>
@@ -25,18 +25,18 @@
                                 <td>{{$value->list_name}}</td>
                                 <td>{{$value->created_at}}</td>
                                <td>
-                               <form action="manageLists/{{$value->list_id}}" method="delete" >
+                               <form action="manageLists/{{$value->list_id}}" method="post" >
                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                 <input type="hidden" name="_method" value="delete">
-                    
+
                                     <!--Delete/Destroy button-->
                                     <div align="left">
                                         <input type="submit" class="btn btn-danger" value="delete" class="fa fa-plus">
                                     </div>
                                 </td>
                                 </tr>
-                                </form>    
+                                </form>
                     @endforeach
 
                     </tbody>

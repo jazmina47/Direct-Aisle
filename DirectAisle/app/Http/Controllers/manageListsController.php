@@ -29,6 +29,7 @@ class manageListsController extends Controller
        // print "made it to index";// Need to specify which variable we are passing with with()
         return view('shopping_lists')->with('lists', $lists);
         //return view('home');
+        //
     }
 
     /**
@@ -38,6 +39,7 @@ class manageListsController extends Controller
      */
     public function create()
     {
+      echo "create list";
         //
         //print "inside create"; exit;
         return view('create_list');
@@ -52,9 +54,21 @@ class manageListsController extends Controller
      */
     public function store(Request $request)
     {
+      echo "create list2";
         //
-        print "inside store"; exit;
-    }
+        print "inside store";
+        $list = new ShoppingList;
+
+        print_r($_REQUEST);
+        //print_r($request);
+        $list->list_name = $request->list_name;
+        $id=Auth::id();
+        $list->user_id = $id;
+        //echo $request->list_name;
+
+        $list->save();
+        $lists = ShoppingList::where('user_id', $id)->get();
+  return view('shopping_lists')->with('lists', $lists);    }
 
     /**
      * Display the specified resource.
@@ -105,7 +119,7 @@ class manageListsController extends Controller
      */
     public function destroy($list_id)
     {
-        
+
         // Delete some list by list_id
         $list = ShoppingList::find($list_id);
         $list->delete();

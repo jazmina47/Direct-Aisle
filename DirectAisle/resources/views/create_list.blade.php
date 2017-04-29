@@ -11,7 +11,7 @@
                 <div class="panel-body">
 
 
-                <form action="" method="POST " class="form-horizontal">
+                <form action="{{ action('manageListsController@store') }}" method="POST" class="form-horizontal">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <!-- Enter List Name -->
@@ -19,7 +19,7 @@
                         <label for="list" class="col-sm-3 control-label">List Name</label>
 
                         <div class="col-sm-6">
-                        <input type="text" name="list_name" id="list_id" class="form-control">
+                        <input type="text" name="list_name" id="list_name" class="form-control">
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
                 </form>
 
 
-            
+
 
                 </div><!-- end of panel-body -->
             </div>

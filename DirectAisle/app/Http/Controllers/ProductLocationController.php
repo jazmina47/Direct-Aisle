@@ -18,15 +18,19 @@ class ProductLocationController extends Controller
      if(!is_null($pid))
      {
          $DATA = (array)DB::select( "SELECT * FROM product_locations WHERE item_id = '$pid'");
+         print_r($DATA);
      }
      //Otherwise return all posts
      else
      {
         $DATA = (array)DB::select( "SELECT * FROM product_locations" );
         foreach($DATA as $row){
+          echo "product: ";
           print_r($row);
+          echo "<br />";
         }
      }
+     
 
     }
 

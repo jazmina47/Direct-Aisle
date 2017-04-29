@@ -23,7 +23,7 @@ Auth::routes();
 
 // Redirects user to the after log in page...
 Route::get('/home', 'HomeController@index');
-Route::post('/home', 'HomeController@shopping_list');//
+Route::post('/home', 'HomeController@shopping_list');
 
 //session varable of store to redirect 
 
@@ -32,9 +32,13 @@ Route::post('/home', 'HomeController@shopping_list');//
 //Route::resource('list', 'listController');
 
 // First: route second: controller
+//shotest way to use a resource controller
 Route::resource('manageLists', 'manageListsController');
 
 
+
+
+// Routes  for admin
 Route::post ('api/product_locations', 'ProductLocationController@store');
 Route::get ('api/product_locations/{pid?}', 'ProductLocationController@index');
 Route::post( 'api/product_locations/{pid}', 'ProductLocationController@update');
@@ -45,7 +49,7 @@ Route::delete( 'api/product_locations/{pid}', 'ProductLocationController@destroy
 
 
 
-// Checks if I'm connected into the direct aisle db.
+// Checks if I'm connected into the direct aisle db. test purposes*
 // DB::Connection
 Route::get('/testDB', function(){
 

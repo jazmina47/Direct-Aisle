@@ -22,7 +22,6 @@ class CreateProductLocationsTable extends Migration
             $table->string('category');
             $table->string('description');
             $table->timestamps();
-
         });
     }
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ShoppingList;
+use Illuminate\Support\Facades\Auth;
 
 class manageListsController extends Controller
 {
@@ -13,9 +15,19 @@ class manageListsController extends Controller
      */
     public function index()
     {
-        //
-       // print "made it to index";
-        return view('shopping_lists');
+        $id = Auth::id();
+        echo $id;
+        //variable name that store lists and model List *test
+       // $lists = ShoppingList::all();
+        $lists = ShoppingList::where('user_id', $id)->get();
+       // foreach($lists as $list)TEST
+        //{
+            //echo $list;
+        //}
+
+
+       // print "made it to index";// Need to specify which variable we are passing with with()
+        return view('shopping_lists')->with('lists', $lists);
         //return view('home');
     }
 
@@ -53,7 +65,11 @@ class manageListsController extends Controller
     public function show($id)
     {
         //
-        print "inside show"; exit;
+        if (isset($_REQUEST['_method']) && $_REQUEST['_method']== 'delete'){
+            $this->destroy($id);
+
+        }
+        //print "inside show"; exit;
     }
 
     /**
@@ -78,7 +94,7 @@ class manageListsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        print "inside update"; exit;
+        print "insvide update"; exit;
     }
 
     /**
@@ -87,10 +103,22 @@ class manageListsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($list_id)
     {
+        
+        // Delete some list by list_id
+        $list = ShoppingList::find($list_id);
+        $list->delete();
+
         //
-        print "inside delete"; exit;
+        \Session::flash('message', 'successfully deleted list!');
+        return \Redirect::to('shopping_lists');
+
+        // return to this same shopping_list view
+        //return view('shopping_lists');
+
+
+
 
     }
 }

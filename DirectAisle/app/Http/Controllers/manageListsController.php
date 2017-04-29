@@ -68,7 +68,8 @@ class manageListsController extends Controller
 
         $list->save();
         $lists = ShoppingList::where('user_id', $id)->get();
-  return view('shopping_lists')->with('lists', $lists);    }
+        
+        return view('shopping_lists')->with('lists', $lists);    }
 
     /**
      * Display the specified resource.
@@ -108,7 +109,11 @@ class manageListsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        print "insvide update"; exit;
+
+        return view('add_items');
+
+        //check if list already has items
+            //if so load them to list 
     }
 
     /**

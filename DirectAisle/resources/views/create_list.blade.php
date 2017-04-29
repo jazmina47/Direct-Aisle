@@ -9,76 +9,31 @@
                 <div class="panel-heading">Direct-Aisle Navigation</div>
 
                 <div class="panel-body">
-                    <div align="center">
-                        <h1>Create Shopping List</h1>
-                        <hr />
-                        <p>Here we will build your grocery shopping list. Keep selecting from the combo boxes then click "Add" until all desired items are added to the list.</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <!-- dropdown 1 -->
-                            <div></div>
 
-                            <p align="left">Select Grocery Category:</p>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-sm-12">
-                            <!--dropdown 2 -->
-                            <p align="left">Select Specific Item:</p>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
 
-                                <input style="margin-left: 15px" class="btn btn-default" type="add">
-                            </div>
-                        </div>
+                <form action="" method="POST " class="form-horizontal">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    </div> <!-- end of row -->
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12"> 
-                            <h4 align="center">Your Current List</h4>
-                            <hr />
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Item</th> <!-- Item name -->
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Apple</td>
-                                        <td><button type="submit">(-) Remove</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bread</td>
-                                        <td><button type="submit">(-) Remove</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <!-- Enter List Name -->
+                    <div class="form-group">
+                        <label for="list" class="col-sm-3 control-label">List Name</label>
 
-                            <input align="left" type="submit" value="Submit">
-
+                        <div class="col-sm-6">
+                        <input type="text" name="list_name" id="list_id" class="form-control">
                         </div>
                     </div>
+
+                    <!-- add new list button -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-6">
+                            <button type="submit" class="btn btn-default">
+                            <i class="fa fa-plus"></i> Add New List
+                        </div>
+                    </div>
+                </form>
+
+
+            
 
                 </div><!-- end of panel-body -->
             </div>

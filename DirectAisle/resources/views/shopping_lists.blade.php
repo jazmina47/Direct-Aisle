@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @jacobtarter
- Sign out
- Unwatch 2
-  Star 0
- Fork 0 kflores88/Direct-Aisle
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
-Tree: 8d77d1269e Find file Copy pathDirect-Aisle/DirectAisle/resources/views/shopping_lists.blade.php
-8d77d12  7 minutes ago
-@jacobtarter jacobtarter delete working
-2 contributors @kflores88 @jacobtarter
-RawBlameHistory
-64 lines (56 sloc)  2.54 KB
 @extends('layouts.app')
 
 @section('content')

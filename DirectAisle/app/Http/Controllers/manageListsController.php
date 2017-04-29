@@ -118,11 +118,7 @@ class manageListsController extends Controller
          ->select('category')
          ->groupBy('category')
          ->get();
-         foreach($categories as $row){
-           echo "product: ";
-           print_r($row);
-           echo "<br />";
-         }
+
         return View::make('add_items', compact('categories'));
 
 

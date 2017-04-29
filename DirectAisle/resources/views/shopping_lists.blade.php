@@ -5,13 +5,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">       
+            <div class="panel panel-default">
                 <div class="panel-heading"><center><h3>Manage Shopping List</h3></center></div><!-- Star of panel-heading -->
                 <div align="center" class="panel-body"><!-- Star of panel-body-->
                     <!--Add table -->
                     <table class="table table-striped task-table">
                     <thead>
-                        <th>ID</th> 
+                        <th>ID</th>
                         <th>NAME</th>
                         <th>DATE</th>
                     </thead>
@@ -69,11 +69,11 @@
 
 
                                 </tr>
-                                </form>       
+                                </form>
                     @endforeach
 
                     </tbody>
-                    <!--Button that redirects to creating a form for adding a shopping list-->
+                    <!--  -->
                     </table>
 
                     <form action="manageLists/create" method="get">

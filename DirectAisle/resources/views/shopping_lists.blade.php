@@ -25,19 +25,49 @@
                                 <td>{{$value->list_id}}</td>
                                 <td>{{$value->list_name}}</td>
                                 <td>{{$value->created_at}}</td>
-                               <td>
-                               <form action="manageLists/{{$value->list_id}}" method="post" >
-                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                                <input type="hidden" name="_method" value="delete">
-
-                                    <!--Delete/Destroy button-->
-                                    <div align="left">
-                                        <input type="submit" class="btn btn-danger" value="delete" class="fa fa-plus">
-                                    </div>
+                               
+                                <!-- Add Items / Edit (Update) -->
+                                <td>
+                                    <form action="manageLists/{{$value->list_id}}" method="post">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="_method" value="put">
+                                    
+                                        <!--Add Items button-->
+                                        <div align="left">
+                                            <input type="submit" class="btn btn-info" value="Add Items / Edit" class="fa fa-plus">
+                                        </div>
+                                    </form>
                                 </td>
-                                </tr>
-                                </form>
+
+                                <!-- Edit -->
+                                <!--<td>
+                                    <form action="manageLists/{{$value->list_id}}/edit" method="get" >
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="_method" value="edit"> -->
+                                    
+                                        <!--Edit button-->
+                                        <!--<div align="left">
+                                            <input type="submit" class="btn btn-info" value="edit" class="fa fa-plus">
+                                        </div>
+                                    </form>
+                                </td> -->
+
+
+                               <!-- Delete -->
+                               <td>
+                                    <form action="manageLists/{{$value->list_id}}" method="post" >
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">  
+                                        <input type="hidden" name="_method" value="delete">
+
+                                        <!--Delete/Destroy button-->
+                                        <div align="left">
+                                            <input type="submit" class="btn btn-danger" value="delete" class="fa fa-plus">
+                                        </div>
+                                    </form>
+                                </td>
+
+                            </tr>
+                                
                     @endforeach
 
                     </tbody>

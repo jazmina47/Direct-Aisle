@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\ShoppingList;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use DB;
+use View;
 
 class manageListsController extends Controller
 {
@@ -70,7 +72,7 @@ class manageListsController extends Controller
 
         $list->save();
         $lists = ShoppingList::where('user_id', $id)->get();
-        
+
         return view('shopping_lists')->with('lists', $lists);    }
 
     /**
@@ -112,11 +114,22 @@ class manageListsController extends Controller
     {
         //
        // print "inside update"; exit;
+       $categories = DB::table('product_locations')
+         ->select('category')
+         ->groupBy('category')
+         ->get();
+         foreach($categories as $row){
+           echo "product: ";
+           print_r($row);
+           echo "<br />";
+         }
+        return View::make('add_items', compact('categories'));
 
-        return view('add_items');
+
+
 
         //check if list already has items
-            //if so load them to list 
+            //if so load them to list
     }
 
     /**

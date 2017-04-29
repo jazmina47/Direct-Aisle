@@ -17,9 +17,21 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <!-- dropdown 1 -->
-                            <div></div>
+                            <select>
+
+                              @foreach($categories as $key => $value)
+
+                              <option value="{{$value->category}}">  {{$value->category}}</option>
+
+
+                              @endforeach
+                            </select>
 
                             <p align="left">Select Grocery Category:</p>
+                            <option selected="selected">Choose one</option>
+
+
+                          </select>
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Dropdown button
@@ -53,7 +65,7 @@
                     </div> <!-- end of row -->
                     <br>
                     <div class="row">
-                        <div class="col-sm-12"> 
+                        <div class="col-sm-12">
                             <h4 align="center">Your Current List</h4>
                             <hr />
                             <table class="table">

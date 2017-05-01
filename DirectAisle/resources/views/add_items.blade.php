@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -20,30 +21,25 @@
 
 
                             <p align="left">Select Grocery Category:</p>
-                            <select>
+                            <select name='category' id='category' class="form-control input-sm">
+                              <option value="Choose One">Choose One</option>
                               @foreach($categories as $key => $value)
                               <option value="{{$value->category}}">  {{$value->category}}</option>
                               @endforeach
                             </select>
-                            
+
+
+
                         </div>
                         <br>
                         <br>
                         <div class="col-sm-12">
                             <!--dropdown 2 -->
                             <p align="left">Select Specific Item:</p>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
+                            <select name="product" id="product" class="form-control input-sm">
+                              <option value=""></option>
 
-                                <input style="margin-left: 15px" class="btn btn-default" type="add">
-                            </div>
+                            </select>
                         </div>
 
                     </div> <!-- end of row -->
@@ -80,3 +76,31 @@
     </div>
 </div>
 @endsection
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+$(function(){
+
+ $("#category").change(function(){
+     var category = this.value;
+    console.log(category);
+
+    var url = "/api/product_locations/"+category;
+    console.log(url);
+     $.get(url, function (data) {
+            //success data
+            console.log(data);
+            var listItems;
+
+      for (var i = 0; i < data.length; i++){
+        listItems+= "<option value='" + data[i].description + "'>" + data[i].description + "</option>";
+      }
+      $("#product").html(listItems);
+
+
+        });
+  });
+  });
+
+
+</script>

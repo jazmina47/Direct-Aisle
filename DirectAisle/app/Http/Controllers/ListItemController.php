@@ -11,9 +11,16 @@ class ListItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category = null)
     {
-        //
+      $categories = DB::table('product_locations')
+        ->select('category')
+        ->groupBy('category')
+        ->get();
+
+       $products = ProductLocation::where('category', $category)->get();
+
+       return View::make('add_items', compact('categories'));
     }
 
     /**

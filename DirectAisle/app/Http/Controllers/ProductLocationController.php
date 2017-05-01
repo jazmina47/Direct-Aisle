@@ -12,25 +12,25 @@ class ProductLocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($pid = null)
+    public function index($category = null)
     {
       //If optional parameter of product ID is given, return that product_locations
-     if(!is_null($pid))
+     if(!is_null($category))
      {
-         $DATA = (array)DB::select( "SELECT * FROM product_locations WHERE item_id = '$pid'");
-         print_r($DATA);
+         $DATA = (array)DB::select( "SELECT description FROM product_locations WHERE category = '$category'");
+         return \Response::json($DATA);
+
+         //return $DATA;
      }
      //Otherwise return all posts
      else
      {
         $DATA = (array)DB::select( "SELECT * FROM product_locations" );
-        foreach($DATA as $row){
-          echo "product: ";
-          print_r($row);
-          echo "<br />";
-        }
+        return \Response::json($DATA);
+
+    
      }
-     
+
 
     }
 

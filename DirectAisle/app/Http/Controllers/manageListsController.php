@@ -112,20 +112,17 @@ class manageListsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-       // print "inside update"; exit;
+
        $categories = DB::table('product_locations')
          ->select('category')
          ->groupBy('category')
          ->get();
 
+        //$products = ProductLocation::where('category', $category)->get();
+
         return View::make('add_items', compact('categories'));
 
 
-
-
-        //check if list already has items
-            //if so load them to list
     }
 
     /**

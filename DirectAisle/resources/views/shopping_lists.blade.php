@@ -25,13 +25,13 @@
                                 <td>{{$value->list_id}}</td>
                                 <td>{{$value->list_name}}</td>
                                 <td>{{$value->created_at}}</td>
-                               
+
                                 <!-- Add Items / Edit (Update) -->
                                 <td>
                                     <form action="manageLists/{{$value->list_id}}" method="post">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="_method" value="put">
-                                    
+
                                         <!--Add Items button-->
                                         <div align="left">
                                             <input type="submit" class="btn btn-info" value="Add Items / Edit" class="fa fa-plus">
@@ -44,7 +44,7 @@
                                     <form action="manageLists/{{$value->list_id}}/edit" method="get" >
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="_method" value="edit"> -->
-                                    
+
                                         <!--Edit button-->
                                         <!--<div align="left">
                                             <input type="submit" class="btn btn-info" value="edit" class="fa fa-plus">
@@ -56,7 +56,7 @@
                                <!-- Delete -->
                                <td>
                                     <form action="manageLists/{{$value->list_id}}" method="post" >
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">  
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="_method" value="delete">
 
                                         <!--Delete/Destroy button-->
@@ -67,7 +67,7 @@
                                 </td>
 
                             </tr>
-                                
+
                     @endforeach
 
                     </tbody>

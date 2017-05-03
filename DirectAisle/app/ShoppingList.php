@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShoppingList extends Model
 {
-    // specified 
+    // specified
     protected $primaryKey = 'list_id';
     protected $table = 'lists';
+
+    public function ShoppingList()
+   {
+       return $this->hasMany('App\ListItem');
+   }
 }

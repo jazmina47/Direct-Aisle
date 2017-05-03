@@ -59,20 +59,29 @@
                                 <thead>
                                     <tr>
                                         <th>Item</th> <!-- Item name -->
-                                        <th>Action</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Apple</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bread</td>
-                                    </tr>
-                                </tbody>
-                            </table>
 
-                            <input align="left" type="submit" value="Submit">
+
+                            @foreach($items as $key => $value)
+                                <tr>
+                                    <!--Task name-->
+                                    <td>{{$value->description}}</td>
+
+
+
+
+
+                                </tr>
+
+                        @endforeach
+
+                        </tbody>
+                        <!--  -->
+                        </table>
+            
 
                         </div>
                     </div>

@@ -111,7 +111,7 @@ class manageListsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      print_r($_REQUEST);
+      //print_r($_REQUEST);
 
        $categories = DB::table('product_locations')
          ->select('category')
@@ -119,10 +119,28 @@ class manageListsController extends Controller
          ->get();
 
         $list_id = $request->list_id;
+
+        $myitemsids = DB::select("select distinct item_id from list_items where list_id = :id", ['id'=>$list_id]);
+        $myitems=array();
+
+        foreach($myitemsids as $id)
+        {
+
+          $item = DB::select("select * from product_locations where item_id = :id", ['id'=>$id->item_id]);
+          $myitems[]=$item[0];
+
+        }
+
+
+        $categories = DB::table('product_locations')
+          ->select('category')
+          ->groupBy('category')
+          ->get();
         //$products = ProductLocation::where('category', $category)->get();
 
         //return View::make('add_items', compact('categories', 'list_id'));
-        return View::make('add_items')->with('categories', $categories)->with('list_id',$list_id);
+        return View::make('add_items')->with('categories', $categories)->with('list_id',$list_id)->with('items',$myitems);
+
 
     }
 

@@ -17,7 +17,7 @@ class ProductLocationController extends Controller
       //If optional parameter of product ID is given, return that product_locations
      if(!is_null($category))
      {
-         $DATA = (array)DB::select( "SELECT description FROM product_locations WHERE category = '$category'");
+         $DATA = (array)DB::select( "SELECT * FROM product_locations WHERE category = '$category'");
          return \Response::json($DATA);
 
          //return $DATA;
@@ -28,7 +28,7 @@ class ProductLocationController extends Controller
         $DATA = (array)DB::select( "SELECT * FROM product_locations" );
         return \Response::json($DATA);
 
-    
+
      }
 
 

@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Direct-Aisle Navigation</div>
+                <div class="panel-heading">Your Shopping List</div>
 
                 <div class="panel-body">
                     <div align="center">
@@ -33,6 +33,9 @@
                         </div>
                         <br>
                         <br>
+                        <form action="{{ action('ListItemController@store') }}" method="post" >
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          <input type="hidden" name="list_id" value="{{$list_id}}">
                         <div class="col-sm-12">
                             <!--dropdown 2 -->
                             <p align="left">Select Specific Item:</p>
@@ -40,7 +43,11 @@
                               <option value=""></option>
 
                             </select>
+                            <div align="left">
+                                <input type="submit" class="btn btn-info" value="Add Item" class="fa fa-plus">
+                            </div>
                         </div>
+                        </form
 
                     </div> <!-- end of row -->
                     <br>
@@ -89,12 +96,19 @@ $(function(){
     console.log(url);
      $.get(url, function (data) {
             //success data
-            console.log(data);
+            console.log(JSON.stringify(data));
+            data.forEach(function(product)
+            {
+
+              JSON.stringify(product);
+            });
             var listItems;
 
       for (var i = 0; i < data.length; i++){
-        listItems+= "<option value='" + data[i].description + "'>" + data[i].description + "</option>";
+        listItems+= "<option value='" + data[i].item_id + "'>" + data[i].description + "</option>";
+        console.log("<option value='" + data[i].item_id + "'>" + data[i].description + "</option>");
       }
+      $('#product').empty();
       $("#product").html(listItems);
 
 

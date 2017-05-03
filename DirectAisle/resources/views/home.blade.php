@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">       
+            <div class="panel panel-default">
                 <div class="panel-heading">Hello, user!</div><!-- Star of panel-heading -->
                 <div align="center" class="panel-body"><!-- Star of panel-body-->
                     <h1>Welcome to Direct Aisle!</h1>
@@ -15,9 +15,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="dropdown"><!-- Start of drop down -->
                                 <select class="storeLocation" id="store" name="store">
-                                <option>Jewl Osco, Batavia</option>
-                                <option>Store#2</option>
-                                <option>Store#3</option>
+                                <option>Jewel-Osco, Batavia</option>
                                 </select>
                             </div><!-- End of drop down -->
                             <div align="center"><br>
@@ -39,13 +37,11 @@
         <div class="row">
             <div class="col-xs-12 col-md-6">
                 <h3 class="title-red">Make shopping easier</h3>
-                <p>Have a cool side project you want to show to the community? 
-                Show it off and get feedback at the Laracon science fair.</p>
+                <p>No more walking back and forth to find all the items on your list!</p>
             </div>
             <div class="col-xs-12 col-md-6">
                 <h3 class="title-red">Find products faster</h3>
-                <p>Listen to some tunes while you meet and mingle with 
-                the Laravel community at our on-site after parties. Drinks are on us!</p>
+                <p>Get out of the store with what you need, in the most efficient way.</p>
             </div>
             </div>
         </div>

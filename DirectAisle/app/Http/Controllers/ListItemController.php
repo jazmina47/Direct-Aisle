@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ShoppingList;
+
 
 class ListItemController extends Controller
 {
@@ -13,6 +15,7 @@ class ListItemController extends Controller
      */
     public function index($category = null)
     {
+      /*
       $categories = DB::table('product_locations')
         ->select('category')
         ->groupBy('category')
@@ -21,6 +24,7 @@ class ListItemController extends Controller
        $products = ProductLocation::where('category', $category)->get();
 
        return View::make('add_items', compact('categories'));
+       */
     }
 
     /**
@@ -42,6 +46,11 @@ class ListItemController extends Controller
     public function store(Request $request)
     {
         //
+        print_r($_REQUEST);
+        $list_id=$request->list_id;
+        $list = ShoppingList::find($list_id);
+        print_r($list);
+
     }
 
     /**

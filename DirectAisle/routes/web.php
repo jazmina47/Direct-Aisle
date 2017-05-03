@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::post('/home', 'HomeController@shopping_list');
 
-//session varable of store to redirect 
+//session varable of store to redirect
 
 //when path has list go to lisController
 //routes all requests to views
@@ -35,8 +35,9 @@ Route::post('/home', 'HomeController@shopping_list');
 //shotest way to use a resource controller
 Route::resource('manageLists', 'manageListsController');
 
-//for shopping 
+//for shopping
 Route::resource('shopNavigation', 'ShoppingController');
+Route::resource('listItems', 'ListItemController');
 
 
 // Routes  for admin

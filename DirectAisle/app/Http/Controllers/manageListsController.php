@@ -71,7 +71,7 @@ class manageListsController extends Controller
         $list->save();
         $lists = ShoppingList::where('user_id', $id)->get();
 
-        return view('shopping_lists')->with('lists', $lists);    
+        return view('shopping_lists')->with('lists', $lists);
     }
 
     /**
@@ -111,16 +111,18 @@ class manageListsController extends Controller
      */
     public function update(Request $request, $id)
     {
+      print_r($_REQUEST);
 
        $categories = DB::table('product_locations')
          ->select('category')
          ->groupBy('category')
          ->get();
 
+        $list_id = $request->list_id;
         //$products = ProductLocation::where('category', $category)->get();
 
-        return View::make('add_items', compact('categories'));
-
+        //return View::make('add_items', compact('categories', 'list_id'));
+        return View::make('add_items')->with('categories', $categories)->with('list_id',$list_id);
 
     }
 

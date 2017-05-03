@@ -7,14 +7,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><center><h3>Manage Shopping List</h3></center></div><!-- Star of panel-heading -->
+                <div class="panel-heading"><center><h3>Your Shopping Lists</h3></center></div><!-- Star of panel-heading -->
                 <div align="center" class="panel-body"><!-- Star of panel-body-->
                     <!--Add table -->
                     <table class="table table-striped task-table">
                     <thead>
-                        <th>ID</th>
                         <th>NAME</th>
-                        <th>DATE</th>
+                        <th>DATE CREATED</th>
                     </thead>
                     <!--Creating the body-->
                     <tbody>
@@ -22,7 +21,6 @@
                         @foreach($lists as $key => $value)
                             <tr>
                                 <!--Task name-->
-                                <td>{{$value->list_id}}</td>
                                 <td>{{$value->list_name}}</td>
                                 <td>{{$value->created_at}}</td>
 
@@ -31,10 +29,10 @@
                                     <form action="manageLists/{{$value->list_id}}" method="post">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="hidden" name="_method" value="put">
-
+                                        <input type="hidden" name="list_id" value="{{ $value->list_id }}">
                                         <!--Add Items button-->
                                         <div align="left">
-                                            <input type="submit" class="btn btn-info" value="Add Items / Edit" class="fa fa-plus">
+                                            <input type="submit" class="btn btn-info" value="View List / Edit" class="fa fa-plus">
                                         </div>
                                     </form>
                                 </td>
@@ -61,7 +59,7 @@
 
                                         <!--Delete/Destroy button-->
                                         <div align="left">
-                                            <input type="submit" class="btn btn-danger" value="Delete" class="fa fa-plus">
+                                            <input type="submit" class="btn btn-danger" value="Delete List" class="fa fa-plus">
                                         </div>
                                     </form>
                                 </td>
@@ -75,7 +73,7 @@
 
                                         <!-- Shop button-->
                                         <div align="left">
-                                            <input type="submit" class="btn btn-success" value="Shop" class="fa fa-plus">
+                                            <input type="submit" class="btn btn-success" value="Shop For This List" class="fa fa-plus">
                                         </div>
                                     </form>
                                 </td>

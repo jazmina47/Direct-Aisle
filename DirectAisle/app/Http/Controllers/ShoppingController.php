@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\ShoppingList;
 use App\ListItem;
 use View;
+use DB;
 
 class ShoppingController extends Controller
 {
@@ -41,21 +42,27 @@ class ShoppingController extends Controller
         /* will give entire list data array*/
         $list = ShoppingList::find($list_id);
 
+        $firstrow=1;
+        $lastrow=3;
+
         $myitemsids = DB::select("select distinct item_id from list_items where list_id = :id", ['id'=>$list_id]);
         $myitems=array();
 
-        foreach($myitemsids as $id)
-        {
+          foreach($myitemsids as $id)
+          {
 
-          $item = DB::select("select * from product_locations where item_id = :id", ['id'=>$id->item_id]);
-          $myitems[]=$item[0];
+            $item = DB::select("select * from product_locations where item_id = :id order by aisle_num, section_num, which_end DESC", ['id'=>$id->item_id]);
 
-        }
+
+
+            $myitems[]=$item[0];
+
+          }
 
 
         foreach($myitems as $i)
         {
-          
+          //print_r($i);
         }
 
 
@@ -68,7 +75,8 @@ class ShoppingController extends Controller
 
         return View::make('shop_navigation')
             ->with('list_id', $list->list_id)
-            ->with('list_name', $list->list_name);
+            ->with('list_name', $list->list_name)
+            ->with('items', $myitems);
 
     }
 

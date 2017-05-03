@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ShoppingList;
+use App\ListItem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use DB;
@@ -154,19 +155,18 @@ class manageListsController extends Controller
     {
 
         // Delete some list by list_id
+        $lists = ListItem::where('list_id', $list_id)->get();
+        //$lists->delete();
+
+        foreach( $lists as $l)
+        {
+          $l->delete();
+        }
+
         $list = ShoppingList::find($list_id);
         $list->delete();
 
-        //
-        //\Session::flash('message', 'successfully deleted list!');
-        //$id=Auth::id();
-        //$lists = ShoppingList::where('user_id', $id)->get();
-        //echo $request->list_name;
-
-
-
-        // return to this same shopping_list view
-        //return view('shopping_lists')->with('lists', $lists);
+      
         return redirect('manageLists');
 
 

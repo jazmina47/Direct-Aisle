@@ -81,7 +81,17 @@
                         </tbody>
                         <!--  -->
                         </table>
-            
+
+                        <form action="{{url('manageLists')}}" method="get">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div align="center"><br>
+                                <button type="submit" class="btn btn-default">
+                                <i class="fa fa-plus">Done
+                                </button>
+                                </div>
+                                </form>
+
+
 
                         </div>
                     </div>

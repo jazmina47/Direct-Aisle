@@ -16,12 +16,45 @@
                         <p>List id is {{ $list_id }}</p>
                         <p>List name is {{ $list_name }}</p>
 
-                        
+
 
                         <div align="center">
                             <input type="submit" class="btn btn-default" value="Done">
                         </div>
                     </form>
+
+
+
+
+                    <table class="table">
+                      <thead>
+                      <tr>
+                        <th>Aisle</th>
+                        <th>Section</th>
+                        <th>End Of Store</th>
+                        <th>Side</th>
+                        <th>Item</th>
+                        <th>Bought?</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($items as $key => $value)
+                        <tr>
+                            <!--Task name-->
+                            <td>{{$value->aisle_num}}</td>
+                            <td>{{$value->section_num}}</td>
+                            <td>{{$value->which_end}}</td>
+                            <td>{{$value->which_side}}</td>
+                            <td>{{$value->description}}</td>
+                            <td><form action="">
+  <input type="checkbox" name="bought" value=""><br>
+
+</form>
+                        </tr>
+                    @endforeach
+                  </tbody>
+                  </table>
+
                 </div><!-- End of panel-body -->
             </div><!-- End of panel-heading -->
         </div>

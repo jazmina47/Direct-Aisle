@@ -35,7 +35,8 @@ Route::post('/home', 'HomeController@shopping_list');
 //shotest way to use a resource controller
 Route::resource('manageLists', 'manageListsController');
 
-
+//for shopping 
+Route::resource('shopNavigation', 'ShoppingController');
 
 
 // Routes  for admin

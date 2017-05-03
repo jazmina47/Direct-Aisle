@@ -58,9 +58,7 @@ class manageListsController extends Controller
      */
     public function store(Request $request)
     {
-      //echo "create list2";
-        //
-      //  print "inside store";
+
         $list = new ShoppingList;
 
       //  print_r($_REQUEST);
@@ -73,7 +71,8 @@ class manageListsController extends Controller
         $list->save();
         $lists = ShoppingList::where('user_id', $id)->get();
 
-        return view('shopping_lists')->with('lists', $lists);    }
+        return view('shopping_lists')->with('lists', $lists);    
+    }
 
     /**
      * Display the specified resource.

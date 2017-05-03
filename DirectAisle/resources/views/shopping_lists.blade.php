@@ -61,7 +61,21 @@
 
                                         <!--Delete/Destroy button-->
                                         <div align="left">
-                                            <input type="submit" class="btn btn-danger" value="delete" class="fa fa-plus">
+                                            <input type="submit" class="btn btn-danger" value="Delete" class="fa fa-plus">
+                                        </div>
+                                    </form>
+                                </td>
+
+                               <!-- Shop A List -->
+                               <td>
+                                        <form action="shopNavigation/{{$value->list_id}}" method="get">
+                                    <!-- <form action="{{ action( 'ShoppingController@index' ) }}" method="get" >-->
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="_method" value="shop">
+
+                                        <!-- Shop button-->
+                                        <div align="left">
+                                            <input type="submit" class="btn btn-success" value="Shop" class="fa fa-plus">
                                         </div>
                                     </form>
                                 </td>

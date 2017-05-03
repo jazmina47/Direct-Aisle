@@ -40,7 +40,25 @@ class ShoppingController extends Controller
     {
         /* will give entire list data array*/
         $list = ShoppingList::find($list_id);
-        
+
+        $myitemsids = DB::select("select distinct item_id from list_items where list_id = :id", ['id'=>$list_id]);
+        $myitems=array();
+
+        foreach($myitemsids as $id)
+        {
+
+          $item = DB::select("select * from product_locations where item_id = :id", ['id'=>$id->item_id]);
+          $myitems[]=$item[0];
+
+        }
+
+
+        foreach($myitems as $i)
+        {
+          
+        }
+
+
         //print "list info is: $list";
         //print "inside shop index";
 
@@ -53,6 +71,6 @@ class ShoppingController extends Controller
             ->with('list_name', $list->list_name);
 
     }
-    
+
 }
 ?>

@@ -71,37 +71,16 @@ class ListItemController extends Controller
 
 
         $myitemsids = DB::select("select distinct item_id from list_items where list_id = :id", ['id'=>$list_id]);
-  //echo("<br><br>");
-  $myitems=array();
+        $myitems=array();
 
         foreach($myitemsids as $id)
         {
-          //echo "<br>";
-          //print_r( $id->item_id);
-          //$i=$id->item_id;
-          //echo($i);
+
           $item = DB::select("select * from product_locations where item_id = :id", ['id'=>$id->item_id]);
           $myitems[]=$item[0];
-          //rint_r($myitems);
-          //echo("<br>");
-          //$myitems[]=$item;
+
         }
-        /*
-        foreach($myitemsids as $id)
-        {
-          echo $id->item_id;
-          echo "<br>";
-          $myitems[]=$id->item_id;
-        }
-*/
-        //echo("<br><br>");
-        //echo("items");
-        //  print_r($myitems);
-        //$results = DB::select('select * from users where id = :id', ['id' => 1]);
-        //foreach($myitems as $item){
-        //  print_r($item);
-        //}
-        //echo("<br><br>");
+
 
         $categories = DB::table('product_locations')
           ->select('category')

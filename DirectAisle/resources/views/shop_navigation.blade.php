@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">       
+            <div class="panel panel-default">
             	<div class="panel-heading">Hello, user!</div><!-- Star of panel-heading -->
                 <div align="center" class="panel-body"><!-- Star of panel-body-->
                     <h1>Store Navigation</h1>
@@ -15,6 +15,8 @@
 
                         <p>List id is {{ $list_id }}</p>
                         <p>List name is {{ $list_name }}</p>
+
+                        
 
                         <div align="center">
                             <input type="submit" class="btn btn-default" value="Done">
